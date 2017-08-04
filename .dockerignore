@@ -1,0 +1,10 @@
+.git/
+.tox/
+.env
+backups/
+site-static/
+media/
+redis*
+history.txt
+.gitignore
+.dockerignore

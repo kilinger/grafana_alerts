@@ -1,0 +1,34 @@
+#
+# Configuration file.
+#
+
+# The URL where grafana server is listening. It must finish with the character '/' (default value: http://localhost:3130)
+
+grafana_url = {{getv "/grafana/url"}}
+
+# Grafana token with viewer access (default value: empty string)
+
+grafana_token = {{getv "/grafana/token"}}
+
+# email to use as alert sender (default value: grafana-alert@localhost)
+email_from = {{if exists "/email/from"}}{{getv "/email/from"}}{{else}}alert@example.com{{end}}
+email_to = {{if exists "/email/to"}}{{getv "/email/to"}}{{else}}to@example.com{{end}}
+before_now = {{if exists "/before/now"}}{{getv "/before/now"}}{{else}}3m{{end}}
+interval = {{if exists "/interval"}}{{getv "/interval"}}{{else}}1s{{end}}
+
+# smtp server to use (default value: localhost)
+smtp_server = {{if exists "/smtp/server"}}{{getv "/smtp/server"}}{{else}}localhost{{end}}
+
+# smtp server host to use (default value: 25)
+# if port is not 25, starts a tls session.
+smtp_port = {{if exists "/smtp/port"}}{{getv "/smtp/port"}}{{else}}25{{end}}
+
+# smtp server username to use if it is needed. Optional. Leave it commented if not used. (default value: no username)
+{{if exists "/smtp/username"}}
+smtp_username = {{getv "/smtp/username"}}
+{{end}}
+
+# smtp server password to use if it is needed. Optional. Leave it commented if not used. (default value: no password)
+{{if exists "/smtp/password"}}
+smtp_password = {{getv "/smtp/password"}}
+{{end}}

@@ -1,0 +1,15 @@
+[template]
+src = "grafana_alerts.cfg.tmpl"
+dest = "/etc/grafana_alerts/grafana_alerts.cfg"
+keys = [
+	"/grafana/url",
+	"/grafana/token",
+	"/email/from",
+	"/email/to",
+	"/before/now",
+	"/interval",
+	"/smtp/server",
+	"/smtp/port",
+	"/smtp/username",
+	"/smtp/password",
+]
